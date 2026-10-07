@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #0b0f0e;
+  color: #dee4e0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom terminal scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090f0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252e29;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3e635;
+}
+
+/* Phosphor glow utilities */
+.glow-primary {
+  box-shadow: 0 0 15px rgba(163, 230, 53, 0.15);
+}
+
+.glow-border {
+  border-color: #a3e635;
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.2);
+}
+
+/* Terminal blink cursor */
+@keyframes blink-cursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink-cursor 1s infinite;
+}
+
+/* Unreal Engine Blueprint Cable animations */
+@keyframes wire-flow {
+  0% {
+    stroke-dashoffset: 32;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-wire-flow {
+  stroke-dasharray: 6 6;
+  animation: wire-flow 1.2s linear infinite;
+}
+
+@keyframes pulse-node {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(163, 230, 53, 0);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(163, 230, 53, 0.25);
+  }
+}
+
+.animate-pulse-node {
+  animation: pulse-node 2.4s ease-in-out infinite;
+}
+
+/* Blueprint graph grid */
+.bg-blueprint-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(52, 211, 153, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(52, 211, 153, 0.08) 1px, transparent 1px);
+}
+
+/* Subtle architectural dot grid */
+.bg-grid-pattern {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 53, 46, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 53, 46, 0.3) 1px, transparent 1px);
+}
