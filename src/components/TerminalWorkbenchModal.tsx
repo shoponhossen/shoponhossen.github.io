@@ -134,7 +134,7 @@ export const TerminalWorkbenchModal: React.FC<TerminalWorkbenchModalProps> = ({
     } else if (lower === 'contact') {
       newHistory.push({
         type: 'output',
-        text: `Email: ${DEVELOPER_INFO.email}\nGitHub: ${DEVELOPER_INFO.github}\nLinkedIn: ${DEVELOPER_INFO.linkedin}`,
+        text: `Email: ${DEVELOPER_INFO.email}\nGitHub: ${DEVELOPER_INFO.github}`,
       });
     } else if (lower === 'uptime') {
       newHistory.push({

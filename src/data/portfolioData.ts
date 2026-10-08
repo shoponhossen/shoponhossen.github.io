@@ -29,7 +29,6 @@ export const DEVELOPER_INFO = {
   role: "Full Stack Developer & Backend Architect",
   email: "shoponhossen2008@gmail.com",
   github: "https://github.com/shoponhossen",
-  linkedin: "https://linkedin.com/in/shoponhossen",
   status: "Available for freelance & contract roles",
   location: "Khulna, Bangladesh · Remote Worldwide",
   experienceYears: "5+",

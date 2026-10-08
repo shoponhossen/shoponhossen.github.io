@@ -80,20 +80,10 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href={DEVELOPER_INFO.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 bg-[#111715] border border-[#29352e] hover:border-[#a3e635] hover:text-[#f0f5f1] transition-all"
-              >
-                <span>[02] LinkedIn Connect</span>
-                <span className="text-[#a3e635]">↗</span>
-              </a>
-
-              <a
                 href={`mailto:${DEVELOPER_INFO.email}`}
                 className="flex items-center justify-between p-2 bg-[#111715] border border-[#29352e] hover:border-[#a3e635] hover:text-[#f0f5f1] transition-all"
               >
-                <span className="truncate">[03] {DEVELOPER_INFO.email}</span>
+                <span className="truncate">[02] {DEVELOPER_INFO.email}</span>
                 <span className="text-[#a3e635]">✉</span>
               </a>
             </div>
