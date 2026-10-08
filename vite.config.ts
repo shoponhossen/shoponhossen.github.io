@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/shoponhossen.github.io/', // must match the repo name exactly, with slashes
+    base: '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
