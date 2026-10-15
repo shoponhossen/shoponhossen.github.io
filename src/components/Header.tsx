@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { DEVELOPER_INFO } from '../data/portfolioData';
-import developerPortrait from '../assets/images/shopon_hossen_nav.jpg';
 
 interface HeaderProps {
   onOpenContact: () => void;
@@ -117,16 +115,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onOpenTerminalMod
               <span>LET&apos;S TALK</span>
               <span className="text-xs sm:text-sm">↗</span>
             </button>
-
-            {/* Developer Thumbnail */}
-            <div className="w-7 h-7 sm:w-8 sm:h-8 relative border border-[#29352e] bg-[#171e1b] overflow-hidden flex-shrink-0 group">
-              <img
-                src={developerPortrait}
-                alt={DEVELOPER_INFO.name}
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all"
-              />
-              <div className="absolute bottom-0 right-0 w-2 h-2 bg-[#a3e635]" title="Verified Engineer" />
-            </div>
 
             {/* Mobile Menu Hamburger Button (visible on < md) */}
             <button
