@@ -18,6 +18,16 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
   const [latency, setLatency] = useState(14);
   const [history, setHistory] = useState<CommandHistoryItem[]>([]);
   const terminalBodyRef = useRef<HTMLDivElement>(null);
+  const terminalDrawerRef = useRef<HTMLDivElement>(null);
+  const terminalInputRef = useRef<HTMLInputElement>(null);
+
+  const handleOpenTerminalAndFocus = () => {
+    setTerminalOpen(true);
+    setTimeout(() => {
+      terminalDrawerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      terminalInputRef.current?.focus();
+    }, 100);
+  };
 
   // Periodic subtle latency fluctuation like a real server ping
   useEffect(() => {
@@ -189,135 +199,57 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* PHOTO COLUMN: ON MOBILE THIS IS ORDER-1 (FIRST ELEMENT SEEN!) */}
-          <div className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-center justify-center py-4 sm:py-6">
+          <div className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-center justify-center py-2 sm:py-4 w-full">
             
-            {/* The Animated Orbiting Cyber-Orb Container */}
-            <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] flex items-center justify-center select-none">
+            {/* Professional Architect Portrait Container */}
+            <div className="relative flex flex-col items-center select-none group">
               
-              {/* Layer 1: Ambient Pulsing Green Glow Backdrop */}
-              <div className="absolute inset-4 rounded-full bg-[#a3e635]/10 blur-2xl animate-pulse pointer-events-none" />
+              {/* Subtle Ambient Backlight Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[390px] sm:h-[390px] lg:w-[460px] lg:h-[460px] rounded-full bg-[#a3e635]/15 blur-3xl pointer-events-none transition-all duration-700 group-hover:bg-[#a3e635]/25" />
 
-              {/* Layer 2: Outermost Wavy Ripple SVG Circle (Animated Sonar Pulse) */}
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none animate-[spin_35s_linear_infinite]"
-                viewBox="0 0 400 400"
-                fill="none"
-              >
-                {/* Wavy undulating perimeter path */}
-                <path
-                  d="M 200, 20
-                     C 240, 25 285, 45 320, 80
-                     C 355, 115 375, 160 380, 200
-                     C 375, 240 355, 285 320, 320
-                     C 285, 355 240, 375 200, 380
-                     C 160, 375 115, 355 80, 320
-                     C 45, 285 25, 240 20, 200
-                     C 25, 160 45, 115 80, 80
-                     C 115, 45 160, 25 200, 20 Z"
-                  stroke="#a3e635"
-                  strokeWidth="1.2"
-                  strokeOpacity="0.35"
-                  strokeDasharray="4 6"
-                />
-              </svg>
-
-              {/* Layer 3: Reverse Rotating Technical Compass Ring */}
-              <div className="absolute inset-3 sm:inset-4 rounded-full border border-dashed border-[#a3e635]/30 animate-[spin_20s_linear_infinite_reverse] pointer-events-none flex items-center justify-center">
-                {/* Crosshair Cardinal Ticks */}
-                <span className="absolute -top-1.5 text-[10px] font-mono text-[#a3e635] font-bold">N·00°</span>
-                <span className="absolute -bottom-1.5 text-[10px] font-mono text-[#34d399] font-bold">S·180°</span>
-                <span className="absolute -left-2 text-[10px] font-mono text-[#69776e]">W·270°</span>
-                <span className="absolute -right-2 text-[10px] font-mono text-[#69776e]">E·90°</span>
-              </div>
-
-              {/* Layer 4: Orbiting Tech Badges (Satellites in Planetary Motion) */}
-              <div className="absolute inset-0 pointer-events-none animate-[spin_28s_linear_infinite]">
+              {/* Minimalist Technical Reticle Ring (Quiet & High-Craft) */}
+              <div className="relative p-2 sm:p-3 rounded-full border border-[#29352e] bg-[#111715]/60 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.6)]">
                 
-                {/* Satellite 1: Top (Python) */}
-                <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="animate-[spin_28s_linear_infinite_reverse]">
-                    <span className="px-2.5 py-0.5 bg-[#0b0f0e] border border-[#a3e635] text-[#a3e635] text-[10px] font-mono font-bold shadow-[0_0_10px_rgba(163,230,53,0.3)] tracking-wider">
-                      PYTHON
-                    </span>
-                  </div>
-                </div>
-
-                {/* Satellite 2: Right (Django) */}
-                <div className="absolute top-1/2 right-1 translate-x-1/2 -translate-y-1/2">
-                  <div className="animate-[spin_28s_linear_infinite_reverse]">
-                    <span className="px-2.5 py-0.5 bg-[#0b0f0e] border border-[#34d399] text-[#34d399] text-[10px] font-mono font-bold shadow-[0_0_10px_rgba(52,211,153,0.3)] tracking-wider">
-                      DJANGO
-                    </span>
-                  </div>
-                </div>
-
-                {/* Satellite 3: Bottom (React) */}
-                <div className="absolute bottom-1 left-1/2 -translate-x-1/2 translate-y-1/2">
-                  <div className="animate-[spin_28s_linear_infinite_reverse]">
-                    <span className="px-2.5 py-0.5 bg-[#0b0f0e] border border-[#38bdf8] text-[#38bdf8] text-[10px] font-mono font-bold shadow-[0_0_10px_rgba(56,189,248,0.3)] tracking-wider">
-                      REACT
-                    </span>
-                  </div>
-                </div>
-
-                {/* Satellite 4: Left (Flet) */}
-                <div className="absolute top-1/2 left-1 -translate-x-1/2 -translate-y-1/2">
-                  <div className="animate-[spin_28s_linear_infinite_reverse]">
-                    <span className="px-2.5 py-0.5 bg-[#0b0f0e] border border-[#fbbf24] text-[#fbbf24] text-[10px] font-mono font-bold shadow-[0_0_10px_rgba(251,191,36,0.3)] tracking-wider">
-                      FLET
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Layer 5: Inner Concentric Pulsing Wave */}
-              <div className="absolute inset-8 sm:inset-10 rounded-full border border-[#a3e635]/40 animate-ping opacity-20 pointer-events-none" />
-
-              {/* Layer 6: The Central Circular Photo Frame */}
-              <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full p-1 bg-gradient-to-tr from-[#a3e635] via-[#34d399]/60 to-[#a3e635] shadow-[0_0_35px_rgba(163,230,53,0.35)] group z-10">
-                
-                {/* Photo Clip Inner */}
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#090f0d] relative border-2 border-[#0b0f0e]">
+                {/* Clean Circular Portrait Frame (Truly Large & Commanding) */}
+                <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[330px] md:h-[330px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-2 border-[#a3e635]/70 ring-2 ring-[#a3e635]/30 shadow-[0_0_35px_rgba(163,230,53,0.22)] bg-[#090f0d]">
                   <img
                     src={developerPortrait}
                     alt={DEVELOPER_INFO.name}
-                    className="w-full h-full object-cover object-[center_20%] filter contrast-[1.08] brightness-[0.98] group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-[center_28%] scale-100 group-hover:scale-105 filter contrast-[1.05] brightness-[0.98] transition-transform duration-500"
                   />
 
-                  {/* Radial Vignette & Scanline Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0e]/80 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Live Status Pill Inside Bottom of Circle */}
-                  <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-[#0b0f0e]/90 backdrop-blur-md border border-[#a3e635]/80 rounded-full text-[9px] font-mono text-[#f0f5f1] flex items-center gap-1.5 whitespace-nowrap shadow-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#a3e635] animate-pulse"></span>
-                    <span className="font-semibold">ONLINE</span>
-                    <span className="text-[#69776e]">·</span>
-                    <span className="text-[#a3e635]">{latency}ms</span>
-                  </div>
+                  {/* Subtle Cinematic Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0e]/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
+                {/* Corner Crosshairs */}
+                <span className="absolute top-0 left-0 text-[10px] text-[#a3e635]/70 font-mono select-none">+</span>
+                <span className="absolute top-0 right-0 text-[10px] text-[#a3e635]/70 font-mono select-none">+</span>
+                <span className="absolute bottom-0 left-0 text-[10px] text-[#a3e635]/70 font-mono select-none">+</span>
+                <span className="absolute bottom-0 right-0 text-[10px] text-[#a3e635]/70 font-mono select-none">+</span>
               </div>
 
-            </div>
+              {/* Professional Floating Status Slate */}
+              <div className="mt-3.5 flex flex-col items-center gap-1.5 text-center">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111715] border border-[#29352e] text-xs font-mono text-[#f0f5f1] shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-[#a3e635] shadow-[0_0_6px_#a3e635] animate-pulse"></span>
+                  <span className="font-semibold tracking-wide">AVAILABLE FOR WORK</span>
+                  <span className="text-[#69776e]">·</span>
+                  <span className="text-[#34d399]">KHULNA [UTC+6]</span>
+                </div>
 
-            {/* Quick Status Sub-bar underneath circular avatar */}
-            <div className="mt-3 sm:mt-4 text-center space-y-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111715] border border-[#29352e] rounded-full text-xs font-mono">
-                <span className="w-2 h-2 rounded-full bg-[#a3e635] shadow-[0_0_6px_#a3e635]"></span>
-                <span className="text-[#f0f5f1] font-semibold">SHOPON HOSSEN</span>
-                <span className="text-[#69776e]">·</span>
-                <span className="text-[#34d399]">KHULNA [UTC+6]</span>
+                <div className="flex items-center gap-2 text-[11px] font-mono text-[#a0ada5]">
+                  <span>{latency}ms latency</span>
+                  <span className="text-[#69776e]">·</span>
+                  <button
+                    onClick={handleOpenTerminalAndFocus}
+                    className="text-[#a3e635] hover:underline cursor-pointer transition-colors"
+                  >
+                    {terminalOpen ? '[-] Focus Terminal Console' : '[>_ Terminal Console]'}
+                  </button>
+                </div>
               </div>
 
-              <div>
-                <button
-                  onClick={() => setTerminalOpen(!terminalOpen)}
-                  className="text-[11px] font-mono text-[#a3e635] hover:underline cursor-pointer inline-flex items-center gap-1.5"
-                >
-                  <span>{terminalOpen ? '[-] Close Terminal Drawer' : '[>_ Open Interactive Terminal]'}</span>
-                </button>
-              </div>
             </div>
 
           </div>
@@ -408,7 +340,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
 
         {/* Expandable Interactive Terminal Drawer (When Opened) */}
         {terminalOpen && (
-          <div className="mt-8 border border-[#29352e] bg-[#171e1b] shadow-2xl animate-fadeIn">
+          <div ref={terminalDrawerRef} className="mt-8 border border-[#29352e] bg-[#171e1b] shadow-2xl animate-fadeIn">
             
             {/* Window Header */}
             <div className="flex items-center justify-between px-3.5 py-2.5 bg-[#111715] border-b border-[#29352e]">
@@ -459,6 +391,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
             <div className="px-3.5 py-2.5 bg-[#111715] border-t border-[#29352e] flex items-center gap-2">
               <span className="text-[#a3e635] text-xs font-mono font-bold">$</span>
               <input
+                ref={terminalInputRef}
                 type="text"
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
