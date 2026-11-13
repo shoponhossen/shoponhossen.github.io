@@ -31,7 +31,7 @@ export const DEVELOPER_INFO = {
   github: "https://github.com/shoponhossen",
   status: "Available for freelance & contract roles",
   location: "Khulna, Bangladesh · Remote Worldwide",
-  experienceYears: "5+",
+  experienceYears: "4+",
   coreStack: ["Python", "Django", "Django REST Framework", "React.js", "Python Flet", "PostgreSQL", "Tailwind CSS", "Redis"],
 };
 
