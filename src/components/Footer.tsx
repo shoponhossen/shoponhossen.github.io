@@ -96,18 +96,6 @@ export const Footer: React.FC = () => {
           <div>
             © 2026 Shopon. Built with curiosity and clean code.
           </div>
-
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5 text-[#dee4e0]">
-              <span className="w-1.5 h-1.5 bg-[#a3e635]"></span>
-              <span>SYS: OPERATIONAL</span>
-            </div>
-            <span className="text-[#29352e]">|</span>
-            <div className="flex items-center gap-1.5 text-[#dee4e0]">
-              <span className="w-1.5 h-1.5 bg-[#34d399]"></span>
-              <span>REGION: GLOBAL</span>
-            </div>
-          </div>
         </div>
 
       </div>

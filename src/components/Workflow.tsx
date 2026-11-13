@@ -27,9 +27,6 @@ export const Workflow: React.FC = () => {
           <div>
             <div className="text-xs font-['JetBrains_Mono'] tracking-wider text-[#a0ada5] mb-2 flex items-center gap-2">
               <span className="text-[#a3e635]">04</span> / WORKFLOW ----
-              <span className="hidden sm:inline-block text-[10px] bg-[#111715] border border-[#29352e] px-1.5 py-0.5 text-[#34d399]">
-                UE_BLUEPRINT_EXECUTION_GRAPH
-              </span>
             </div>
             <h2 className="font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#f0f5f1] tracking-tight">
               From requirements to reliable delivery.
@@ -48,10 +45,6 @@ export const Workflow: React.FC = () => {
               <span className={`w-2 h-2 ${isSimulating ? 'bg-[#a3e635] animate-pulse' : 'bg-[#69776e]'}`}></span>
               <span>{isSimulating ? 'PAUSE SIMULATION' : 'RESUME SIMULATION'}</span>
             </button>
-
-            <span className="text-[11px] font-mono text-[#69776e] hidden lg:inline-block">
-              ZOOM: 100% · COMPILED ✓
-            </span>
           </div>
         </div>
 
@@ -62,11 +55,8 @@ export const Workflow: React.FC = () => {
           <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#29352e]/80 text-[11px] font-mono text-[#69776e]">
             <div className="flex items-center gap-2">
               <span className="text-[#a3e635] font-bold">EventGraph</span>
-              <span>/</span>
-              <span className="text-[#dee4e0]">ExecutionPipeline.uasset</span>
             </div>
             <div className="flex items-center gap-4">
-              <span className="hidden sm:inline">STATE: {isSimulating ? 'PROPAGATING SIGNAL' : 'IDLE'}</span>
               <span className="text-[#34d399] font-bold">STEP {activeStepIndex + 1} / 4 ACTIVE</span>
             </div>
           </div>
@@ -255,7 +245,6 @@ export const Workflow: React.FC = () => {
           {/* Bottom Blueprint Diagnostic Status */}
           <div className="mt-8 pt-4 border-t border-[#29352e]/80 flex flex-col sm:flex-row items-center justify-end gap-3 text-[11px] font-mono text-[#69776e]">
             <div className="flex items-center gap-4">
-              <span>LATENCY: ZERO-OVERHEAD</span>
               <span className="text-[#a3e635]">CLICK ANY NODE TO DIRECTLY EXECUTE</span>
             </div>
           </div>

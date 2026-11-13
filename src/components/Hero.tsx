@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { DEVELOPER_INFO } from '../data/portfolioData';
 import developerPortrait from '../assets/images/shopon_hossen_nav.jpg';
 
@@ -15,7 +15,6 @@ interface CommandHistoryItem {
 export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) => {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [inputVal, setInputVal] = useState('');
-  const [latency, setLatency] = useState(14);
   const [history, setHistory] = useState<CommandHistoryItem[]>([]);
   const terminalBodyRef = useRef<HTMLDivElement>(null);
   const terminalDrawerRef = useRef<HTMLDivElement>(null);
@@ -28,14 +27,6 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
       terminalInputRef.current?.focus();
     }, 100);
   };
-
-  // Periodic subtle latency fluctuation like a real server ping
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLatency(Math.floor(12 + Math.random() * 6));
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCommand = (cmdStr: string) => {
     const trimmed = cmdStr.trim().toLowerCase();
@@ -239,8 +230,6 @@ export const Hero: React.FC<HeroProps> = ({ onDiscussProject, onExploreWork }) =
                 </div>
 
                 <div className="flex items-center gap-2 text-[11px] font-mono text-[#a0ada5]">
-                  <span>{latency}ms latency</span>
-                  <span className="text-[#69776e]">·</span>
                   <button
                     onClick={handleOpenTerminalAndFocus}
                     className="text-[#a3e635] hover:underline cursor-pointer transition-colors"

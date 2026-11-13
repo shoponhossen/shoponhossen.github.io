@@ -101,11 +101,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onOpenTerminalMod
               </button>
             )}
 
-            {/* Live Status Badge (visible on lg+) */}
-            <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 bg-[#111715] border border-[#29352e] text-[11px] font-['JetBrains_Mono'] text-[#a0ada5]">
-              <span className="w-1.5 h-1.5 bg-[#a3e635] shadow-[0_0_8px_#a3e635] animate-pulse"></span>
-              <span>Available for freelance</span>
-            </div>
+            {/* Resume Download Button (hidden on small mobile, visible on sm+) */}
+            <a
+              href="/Shopon's%20Resume.pdf"
+              download="Shopon's Resume.pdf"
+              title="Download Resume (PDF)"
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-xs font-['JetBrains_Mono'] text-[#dee4e0] border border-[#29352e] hover:border-[#a3e635] hover:text-[#a3e635] bg-[#111715] transition-colors cursor-pointer whitespace-nowrap"
+            >
+              <span className="text-[#a3e635] font-bold">↓</span>
+              <span>RESUME</span>
+            </a>
 
             {/* Primary CTA (compact on mobile) */}
             <button
@@ -203,6 +208,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onOpenTerminalMod
                   <span>LAUNCH CLI WORKBENCH</span>
                 </button>
               )}
+
+              {/* Resume Download Link */}
+              <a
+                href="/Shopon's%20Resume.pdf"
+                download="Shopon's Resume.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-2.5 bg-[#111715] hover:bg-[#171e1b] border border-[#29352e] hover:border-[#a3e635] text-[#dee4e0] hover:text-[#a3e635] font-mono text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span className="text-[#a3e635]">↓</span>
+                <span>DOWNLOAD RESUME</span>
+              </a>
             </div>
 
             {/* Telemetry Footer */}

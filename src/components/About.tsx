@@ -92,18 +92,10 @@ export const About: React.FC<AboutProps> = ({ onGetInTouch }) => {
           <div>
             <div className="text-xs font-['JetBrains_Mono'] tracking-wider text-[#a0ada5] mb-2 flex items-center gap-2">
               <span className="text-[#a3e635]">01</span> / ABOUT ----
-              <span className="text-[10px] bg-[#111715] border border-[#29352e] px-1.5 py-0.5 text-[#34d399]">
-                DEVELOPER_PROFILE_V2
-              </span>
             </div>
             <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#f0f5f1] tracking-tight">
               Hello, this is Shopon Hossen.
             </h2>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-mono text-[#a0ada5]">
-            <span className="w-2 h-2 bg-[#a3e635] shadow-[0_0_8px_#a3e635] animate-pulse"></span>
-            <span>AVAILABLE FOR FREELANCE &amp; CONTRACT ROLES</span>
           </div>
         </div>
 
@@ -275,6 +267,14 @@ export const About: React.FC<AboutProps> = ({ onGetInTouch }) => {
               >
                 GitHub ↗
               </a>
+
+              <a
+                href="/Shopon's%20Resume.pdf"
+                download="Shopon's Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-4 py-3 bg-[#111715] hover:bg-[#171e1b] text-[#a3e635] hover:text-white border border-[#29352e] hover:border-[#a3e635] text-xs font-mono transition-colors cursor-pointer"
+              >
+                <span>↓ Download Resume</span>
+              </a>
             </div>
 
           </div>
@@ -295,9 +295,6 @@ export const About: React.FC<AboutProps> = ({ onGetInTouch }) => {
                   <span className="w-2 h-2 bg-[#a3e635]"></span>
                   <span className="text-[#dee4e0] font-semibold">shopon@khulna</span>
                 </div>
-                <span className="text-[10px] text-[#34d399] bg-[#111715] border border-[#29352e] px-1.5 py-0.5">
-                  ID: VERIFIED_DEV
-                </span>
               </div>
 
               {/* Photo Frame */}
@@ -322,12 +319,10 @@ export const About: React.FC<AboutProps> = ({ onGetInTouch }) => {
               <div className="mt-3 p-3 bg-[#111715] border border-[#29352e] space-y-2 text-xs font-['JetBrains_Mono']">
                 <div className="flex items-center justify-between text-[#f0f5f1]">
                   <span className="font-semibold text-sm">{DEVELOPER_INFO.name}</span>
-                  <span className="text-[10px] text-[#a3e635]">[STATUS: 200 OK]</span>
                 </div>
 
                 <div className="text-[11px] text-[#a0ada5] flex items-center justify-between pt-1 border-t border-[#29352e]/60">
                   <span>Stack: Python · Django · React</span>
-                  <span className="text-[#34d399]">UTC+6</span>
                 </div>
               </div>
 

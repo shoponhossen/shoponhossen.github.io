@@ -18,7 +18,7 @@ interface ScreenshotItem {
   label: string;
 }
 
-export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ onOpenProjectModal }) => {
+export const FeaturedProject: React.FC<FeaturedProjectProps> = () => {
   // Convert globbed modules into ordered gallery items
   const galleryScreens: ScreenshotItem[] = Object.entries(screenshotModules)
     .sort(([a], [b]) => a.localeCompare(b))
@@ -74,13 +74,10 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ onOpenProjectM
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
+        <div className="flex flex-col items-start gap-5 mb-8 sm:mb-12">
           <div>
             <div className="text-xs font-['JetBrains_Mono'] tracking-wider text-[#a0ada5] mb-2 flex items-center gap-2">
               <span className="text-[#a3e635]">02</span> / SELECTED WORK ----
-              <span className="text-[10px] bg-[#111715] border border-[#29352e] px-1.5 py-0.5 text-[#34d399] font-bold">
-                PROFITABLE STARTUP · ACTIVE REVENUE
-              </span>
             </div>
             
             <h2 className="font-['Space_Grotesk'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#f0f5f1] tracking-tight">
@@ -92,36 +89,30 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ onOpenProjectM
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
             <a
               href={FEATURED_PROJECT.apkDownloadUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#a3e635] hover:bg-white text-[#0b0f0e] font-['JetBrains_Mono'] text-xs font-bold tracking-wider transition-colors cursor-pointer shadow-[0_0_12px_rgba(163,230,53,0.15)]"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-[#a3e635] hover:bg-white text-[#0b0f0e] font-['JetBrains_Mono'] text-xs font-bold tracking-wider whitespace-nowrap transition-colors cursor-pointer shadow-[0_0_12px_rgba(163,230,53,0.15)]"
             >
               <span>Download APK / Web Portal</span>
               <span>↗</span>
             </a>
-
-            <button
-              onClick={onOpenProjectModal}
-              className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#111715] hover:bg-[#171e1b] border border-[#29352e] hover:border-[#a3e635] text-xs font-['JetBrains_Mono'] text-[#dee4e0] hover:text-[#a3e635] transition-colors cursor-pointer"
-            >
-              <span>System Specs</span>
-              <span>→</span>
-            </button>
           </div>
         </div>
 
         {/* Startup Metrics Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-8">
-          {FEATURED_PROJECT.metrics.map((m, idx) => (
-            <div key={idx} className="p-3 sm:p-4 bg-[#111715] border border-[#29352e]">
-              <div className="text-[10px] font-mono text-[#69776e] uppercase tracking-wider">{m.label}</div>
-              <div className="text-base sm:text-xl font-bold font-mono text-[#a3e635] mt-0.5">{m.value}</div>
-              <div className="text-[10px] font-mono text-[#a0ada5] mt-1 truncate">{m.desc}</div>
-            </div>
-          ))}
+          {FEATURED_PROJECT.metrics
+            .filter((_, idx) => idx !== 2)
+            .map((m, idx) => (
+              <div key={idx} className="p-3 sm:p-4 bg-[#111715] border border-[#29352e]">
+                <div className="text-[10px] font-mono text-[#69776e] uppercase tracking-wider">{m.label}</div>
+                <div className="text-base sm:text-xl font-bold font-mono text-[#a3e635] mt-0.5">{m.value}</div>
+                <div className="text-[10px] font-mono text-[#a0ada5] mt-1 truncate">{m.desc}</div>
+              </div>
+            ))}
         </div>
 
         {/* Simple Swipeable App Image Gallery */}
@@ -133,9 +124,6 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ onOpenProjectM
               <span className="w-2 h-2 bg-[#a3e635] inline-block shadow-[0_0_6px_#a3e635]"></span>
               <span className="font-mono text-xs font-bold text-[#f0f5f1]">
                 APP SCREENSHOT GALLERY
-              </span>
-              <span className="text-[10px] font-mono text-[#69776e] hidden sm:inline">
-                (Swipe or scroll horizontally)
               </span>
             </div>
 
@@ -241,10 +229,6 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ onOpenProjectM
                 />
               ))}
             </div>
-
-            <span className="text-[#a0ada5]">
-              Core Android APK Engine · Real Cashflow Tournaments
-            </span>
           </div>
 
         </div>
